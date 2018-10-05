@@ -29,14 +29,14 @@ class World{
   
   void step(){
     //float dt = 1.0f / 60.0f;
-    float dt = 0.005f;
+    float dt = 0.1f;
     for(ForceGenerator g : fg){
       g.applyForce();
     }
     
     for(Body b : bodies){
       b.update(dt);
-      b.side();
+      //b.side();
     }
   }
   

@@ -2,6 +2,7 @@ class Circle extends Body{
   float size;
   Circle(PVector position, float size, float mass){
     this.position = position.copy();
+    this.prevPosition = position.copy();
     this.size = size;
     this.mass = mass;
     if(mass == -1)
