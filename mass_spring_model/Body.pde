@@ -5,21 +5,14 @@ class Body{
   void applyForce(PVector f){ force.add(f); }
   void update(float dt){
     
+    prevPosition = position.copy();
     
     velocity.add(force.mult(dt*invMass));
-    //position.add(PVector.mult(velocity, dt));
-    
-    //float x_ = position.y;
-    
-    vy = position.y - prevPosition.y;
     
     position.mult(2);
     position.sub(prevPosition);
     position.add(force.mult(dt));
     
-    //velocity = PVector.sub(position, prevPosition);
-    
-    prevPosition = position.copy();
     side();
     force.set(0, 0);
   }
@@ -41,10 +34,9 @@ class Body{
     }
     if(position.y > height) {
       velocity.y *= -1;
+      float dy = position.y - prevPosition.y;
       position.y = height;
-      println(prevPosition.y);
-      prevPosition.y += 2*vy;
-      println(prevPosition.y);
+      prevPosition.y = position.y + dy;
       return true;
     }
     else if(position.y < 0){
