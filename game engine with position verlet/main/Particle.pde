@@ -8,6 +8,11 @@ class Particle{
     force = new PVector(0, 0);
     
     if(mass == -1) invMass = 0;
+    else invMass = 1/mass;
+  }
+  
+  void applyForce(PVector f){
+    force.add(f);
   }
   
   void update(float dt){

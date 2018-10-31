@@ -1,13 +1,19 @@
 
-Particle p = new Particle(250, 250, 1);
+World world = new World();
 
 void setup(){
   size(500, 500);
 }
 
+void mousePressed(){
+  world.addParticle(mouseX, mouseY);
+}
+
 void draw(){
   background(0);
   
-  p.update(0.01);
-  p.draw();
+  
+  world.applyGravity();
+  world.update();
+  world.draw();
 }
