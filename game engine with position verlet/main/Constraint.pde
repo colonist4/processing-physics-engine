@@ -1,0 +1,3 @@
+interface Constraint{
+  void solve();
+}
