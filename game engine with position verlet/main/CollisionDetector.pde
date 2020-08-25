@@ -67,6 +67,6 @@ class CollisionDetector{
       }
     }
     
-    return null;
+    return c;
   }
 }
